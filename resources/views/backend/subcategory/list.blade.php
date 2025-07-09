@@ -1,7 +1,8 @@
 @extends('backend.master')
 
 @section('contant')
-    <!--begin::App Content Header-->
+
+<!--begin::App Content Header-->
     <div class="app-content-header">
         <!--begin::Container-->
         <div class="container-fluid">
@@ -29,7 +30,6 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-md-12">
-                
                     <div class="card mb-4">
                         <div class="card-header">
                             <h3 class="card-title">Manage SubCategories</h3>
@@ -39,34 +39,37 @@
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
-                                        <th> SL </th>
-                                        <th>Sub Category Name </th>
+                                        <th>SL</th>
+                                        <th>Sub Category Name</th>
                                         <th>Category</th>
-                                        <th> Action </th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   @foreach ($subCategories as $subcategory)
+                                    @foreach ($subCategories as $subcategory)
                                         <tr class="align-middle">
                                         <td>{{$loop->index+1}}</td>
                                         <td>{{$subcategory->name}}</td>
-                                        <td>{{$subcategory->cat_id}}</td>
+                                        <td>{{$subcategory->category->name}}</td>
                                         <td>
                                             <a href="{{url('/admin/sub-category/edit/'.$subcategory->id)}}" class="btn btn-primary">Edit</a>
                                             <a href="{{url('/admin/sub-category/delete/'.$subcategory->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
-                                   
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-              
+                </div>
+                <!-- /.col -->
+            </div>
+            <!--end::Row-->
         </div>
         <!--end::Container-->
     </div>
     <!--end::App Content-->
+
 @endsection

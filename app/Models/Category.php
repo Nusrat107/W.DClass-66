@@ -9,6 +9,19 @@ class Category extends Model
 {
     use HasFactory;
 
-        protected $guarded = [];
+    protected $guarded = [];
+
+    public function subCategory ()
+    {
+        return $this->hasMany(SubCategory::class,'cat_id', 'id');
+    }
 
 }
+
+
+
+//Category hasMany SubCategory
+//belongsTo() | hasMany()
+//Eloquent Relationship
+
+//Foreign key | Local Key
