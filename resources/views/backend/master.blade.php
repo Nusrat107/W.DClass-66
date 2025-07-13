@@ -33,6 +33,7 @@
 
     @include('backend.includes.script')
 
+@stack('script')
 </body>
 <!--end::Body-->
 

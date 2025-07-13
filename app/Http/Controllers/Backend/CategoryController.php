@@ -30,7 +30,7 @@ class CategoryController extends Controller
 
       if(isset($request->img)){
         $imageName = rand().'-category-'.'.'.$request->img->extension();
-        $request->img->move('backend/image/category', $imageName);
+        $request->img->move('backend/image/category/', $imageName);
 
         $category->img = $imageName;
 

@@ -1,4 +1,4 @@
-@extends('Frontend.master')
+@extends('backend.master')
 
 @section('contant')
 
@@ -147,4 +147,4 @@
             </div>
         </section>
 
-        @endsection
+@endsection

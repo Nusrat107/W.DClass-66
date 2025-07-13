@@ -5,34 +5,36 @@ use App\Http\Controllers\Backend\AdminDashboardController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SubCategoryController;
-use App\Http\Controllers\FrontedController;
+use App\Http\Controllers\FrontendController;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\Route;
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 
-Route::get('/', [FrontedController::class, 'index']);
-Route::get('/shop', [FrontedController::class, 'ShopProduct']);
-Route::get('/return', [FrontedController::class, 'ReturnProduct']);
-Route::get('/catagory', [FrontedController::class, 'CatagoryProduct']);
-Route::get('/type/{type}', [FrontedController::class, 'TypeProduct']);
-Route::get('/view', [FrontedController::class, 'ViewProduct']);
-Route::get('/cheackout', [FrontedController::class, 'cheackOutProduct']);
-Route::get('/details', [FrontedController::class, 'ditailsProduct']);
-Route::get('/sub-catagory', [FrontedController::class, 'subcatagoryProduct']);
-Route::get('/thank-you', [FrontedController::class, 'thankyou']);
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('/shop', [FrontendController::class, 'ShopProduct']);
+Route::get('/return', [FrontendController::class, 'ReturnProduct']);
+Route::get('/catagory', [FrontendController::class, 'CatagoryProduct']);
+Route::get('/type/{type}', [FrontendController::class, 'TypeProduct']);
+Route::get('/view', [FrontendController::class, 'ViewProduct']);
+Route::get('/cheackout', [FrontendController::class, 'cheackOutProduct']);
+Route::get('/details{id}', [FrontendController::class, 'ditailsProduct']);
+Route::get('/sub-catagory', [FrontendController::class, 'subcatagoryProduct']);
+Route::get('/thank-you', [FrontendController::class, 'thankyou']);
 
 ///policy///
 
-Route::get('/privacy-policy', [FrontedController::class, 'privacypolicy']);
-Route::get('/tearms-conditions', [FrontedController::class, 'tearmscondition']);
-Route::get('/refund-policy', [FrontedController::class, 'refundpolicy']);
-Route::get('/payment-policy', [FrontedController::class, 'paymentpolicy']);
-Route::get('/about-us', [FrontedController::class, 'aboutUs']);
-Route::get('/contact-us', [FrontedController::class, 'contactUs']);
+Route::get('/privacy-policy', [FrontendController::class, 'privacypolicy']);
+Route::get('/tearms-conditions', [FrontendController::class, 'tearmscondition']);
+Route::get('/refund-policy', [FrontendController::class, 'refundpolicy']);
+Route::get('/payment-policy', [FrontendController::class, 'paymentpolicy']);
+Route::get('/about-us', [FrontendController::class, 'aboutUs']);
+Route::get('/contact-us', [FrontendController::class, 'contactUs']);
 
 ///AdminAuthRoutes//////
 Route::get('/admin/login', [AdminController::class, 'loginForm']);
@@ -67,4 +69,11 @@ Route::get('/admin/product/list', [ProductController::class, 'productlist']);
 Route::get('/admin/product/delete/{id}', [ProductController::class, 'productDelete']);
 Route::get('/admin/product/edit/{id}', [ProductController::class, 'productEdit']);
 Route::post('/admin/product/update/{id}', [ProductController::class, 'productUpdate']);
+
+Route::get('/admin/product/color/delete/{id}', [ProductController::class, 'colorDelete']);
+Route::get('/admin/product/size/delete/{id}', [ProductController::class, 'sizeDelete']);
+Route::get('/admin/product/gallery-image/delete/{id}', [ProductController::class, 'galleryImageDelete']);
+Route::get('/admin/product/gallery-image/edit/{id}', [ProductController::class, 'galleryImageEdit']);
+Route::post('/admin/product/gallery-image/update/{id}', [ProductController::class, 'galleryImageUpdate']);
+
 

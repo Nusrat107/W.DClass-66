@@ -9,5 +9,10 @@ class Size extends Model
 {
     use HasFactory;
 
-       protected $guarded = [];
+    protected $guarded = [];
+
+    public function product()
+    {
+        return $this->belongsTo(Size::class, 'product_id', 'id');
+    }
 }
