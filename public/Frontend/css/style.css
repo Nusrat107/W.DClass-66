@@ -1492,7 +1492,7 @@ margin-left: 10px;
       align-items: center;
       justify-content: center;
       color: #000;
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
       margin-bottom: 0;
       padding: 5px;
@@ -3271,3 +3271,5 @@ margin-left: 10px;
     color: var(--primary);
 }
 /*Thank you page css End*/
+
+

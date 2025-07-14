@@ -22,8 +22,8 @@ Route::get('/return', [FrontendController::class, 'ReturnProduct']);
 Route::get('/catagory', [FrontendController::class, 'CatagoryProduct']);
 Route::get('/type/{type}', [FrontendController::class, 'TypeProduct']);
 Route::get('/view', [FrontendController::class, 'ViewProduct']);
-Route::get('/cheackout', [FrontendController::class, 'cheackOutProduct']);
-Route::get('/details{id}', [FrontendController::class, 'ditailsProduct']);
+Route::get('/cheackout', [FrontendController::class, 'cheackoutProduct']);
+Route::get('/details/{slug}', [FrontendController::class, 'detailsProduct']);
 Route::get('/sub-catagory', [FrontendController::class, 'subcatagoryProduct']);
 Route::get('/thank-you', [FrontendController::class, 'thankyou']);
 

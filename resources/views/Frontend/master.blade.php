@@ -18,5 +18,8 @@
 
     @include('Frontend.include.footer')
 	@include('Frontend.include.script')
+
+	    @stack('script')
+
 </body>
 </html>
