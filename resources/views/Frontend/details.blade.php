@@ -153,7 +153,7 @@
                         </h3>
                         @foreach ($categories as $category)
                             <a href="#" class="category-item-outer">
-                            <img src="{{asset('backend/images/category/'.$category->image)}}" alt="category image">
+                            <img src="{{asset('backend/image/category/'.$category->img)}}" alt="category image">
                             {{$category->name}}
                         </a>
                         @endforeach
