@@ -23,9 +23,14 @@ Route::get('/catagory', [FrontendController::class, 'CatagoryProduct']);
 Route::get('/type/{type}', [FrontendController::class, 'TypeProduct']);
 Route::get('/view', [FrontendController::class, 'ViewProduct']);
 Route::get('/cheackout', [FrontendController::class, 'cheackoutProduct']);
-Route::get('/details/{slug}', [FrontendController::class, 'detailsProduct']);
+Route::get('/details/{slug}', [FrontendController::class, 'detailsProduct'])->name('product.details');
 Route::get('/sub-catagory', [FrontendController::class, 'subcatagoryProduct']);
 Route::get('/thank-you', [FrontendController::class, 'thankyou']);
+
+//Add to Cart Routes...
+Route::post('/product-details/add-to-cart/{product_id}', [FrontendController::class, 'addToCartDetails']);
+Route::get('/add-to-cart/{product_id}', [FrontendController::class, 'addToCart']);
+
 
 ///policy///
 

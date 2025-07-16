@@ -44,7 +44,7 @@
                                 <div class="checkout-item-outer">
                                     <div class="checkout-item-left">
                                         <div class="checkout-item-image">
-                                            <img src="./assets/images/product.png" alt="Image"/>
+                                          <img src="{{asset('frontend/images/product.png')}}" alt="Image"/>
                                         </div>
                                         <div class="checkout-item-info">
                                             <h6 class="checkout-item-name">
