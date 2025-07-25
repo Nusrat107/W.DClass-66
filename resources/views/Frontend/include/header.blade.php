@@ -37,24 +37,26 @@
                                 @endphp
 
 													
-								  <div class="cart-item-outer">
+								 <div class="cart-items-outer">
+                            <div class="cart-item-outer">
                                 <a href="{{url('product-details/'.$cart->product->slug)}}" class="cart-product-image">
                                     <img src="{{asset('backend/images/product/'.$cart->product->image)}}" alt="product">
                                 </a>
                                 <div class="cart-product-name-price">
                                     <a href="{{url('product-details/'.$cart->product->slug)}}" class="product-name">
-                                        {{$cart->product->name}} X {{$cart->qty}}
+                                        {{$cart->product->name}} x {{$cart->qty}}
                                     </a>
                                     <span class="product-price">
                                         ৳ {{$cart->price}}
                                     </span>
                                 </div>
                                 <div class="cart-item-delete">
-                                    <a href="#" class="delete-btn">
+                                    <a href="{{url('/add-to-cart/delete/'.$cart->id)}}" class="delete-btn">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
                             </div>
+                        </div>
 								@endforeach
 							</div>
 							<div class="shopping-cart-footer">
@@ -63,10 +65,9 @@
 
 								</div>
 								<div class="shopping-cart-button">
-									<a href="{{url('view')}}" class="view-cart-link">View cart</a>
-								<a href="{{url('checkout')}}" class="checkout-link">Checkout</a>
-
-								</div>
+                                <a href="{{'/view'}}" class="view-cart-link">View cart</a>
+                                <a href="{{'/cheackout'}}" class="checkout-link">Checkout</a>
+                            </div>
 									
 							</div>
 						</div>

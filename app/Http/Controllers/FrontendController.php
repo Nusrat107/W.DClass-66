@@ -120,6 +120,13 @@ class FrontendController extends Controller
         }
     }
 
+    public function addToCartDelete ($id)
+    {
+        $Cart = Cart::find($id);
+        $Cart->delete();
+        return redirect()->back();
+    }
+
     public function ShopProduct()
     {
         return view('frontend.shop');
@@ -141,6 +148,8 @@ class FrontendController extends Controller
     $categories = Category::orderBy('name', 'asc')->get();
     return view('frontend.details', compact('product', 'categories'));
 }
+
+
 
     public function TypeProduct($type)
     {
