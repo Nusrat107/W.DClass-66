@@ -27,6 +27,12 @@ Route::get('/details/{slug}', [FrontendController::class, 'detailsProduct'])->na
 Route::get('/sub-catagory', [FrontendController::class, 'subcatagoryProduct']);
 Route::get('/thank-you', [FrontendController::class, 'thankyou']);
 
+
+//Order Placing Process......
+Route::post('/confirm-order', [FrontendController::class, 'confirmOrder']);
+Route::get('/success-order/{invoiceid}', [FrontendController::class, 'successOrder']);
+
+
 //Add to Cart Routes...
 Route::post('/product-details/add-to-cart/{product_id}', [FrontendController::class, 'addToCartDetails']);
 Route::get('/add-to-cart/{product_id}', [FrontendController::class, 'addToCart']);

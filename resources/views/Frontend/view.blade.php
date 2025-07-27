@@ -48,7 +48,7 @@
                 </div>
                 <div class="text-center">
                     <a href="{{url('/cheackout')}}" class="process-checkout-btn">
-                        Proceed To CheckOut
+                        Proceed To CheackOut
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </div>

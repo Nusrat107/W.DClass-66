@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\OrderDetails;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -165,6 +167,62 @@ class FrontendController extends Controller
     {
         return view('frontend.cheackout');
     }
+
+    public function confirmOrder (Request $request)
+    {
+         $order = new Order();
+
+        $order->ip_address = $request->ip();
+
+        $previousOrder = Order::orderBy('id', 'desc')->first();
+
+        if($previousOrder == null){
+            $generateInvoice = "XYZ-1";
+            $order->invoice_number = $generateInvoice;
+        }
+        elseif($previousOrder != null){
+            $generateInvoice = "XYZ-".$previousOrder->id+1;
+            $order->invoice_number = $generateInvoice;
+        }
+        $order->name = $request->name;
+        $order->phone = $request->phone;
+        $order->address = $request->address;
+        $order->charge = $request->charge;
+        $order->price = $request->inputGrandTotal;
+
+        $cartProducts = Cart::where('ip_address', $request->ip())->get();
+
+        if($cartProducts->isNotEmpty()){
+            $order->save();
+
+            foreach($cartProducts as $cart){
+                $orderDetails = new OrderDetails();
+
+                $orderDetails->order_id = $order->id;
+                $orderDetails->product_id = $cart->product_id;
+                $orderDetails->color = $cart->color;
+                $orderDetails->size = $cart->size;
+                $orderDetails->qty = $cart->qty;
+                $orderDetails->price = $cart->price;
+
+                $orderDetails->save();
+                $cart->delete();
+            }
+
+            return redirect('success-order/'.$generateInvoice);
+
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
+    public function successOrder ($invoiceid)
+    {
+        return view('frontend.thankyou', compact('invoiceid'));
+    }
+
+    
 
     public function privacypolicy()
     {
